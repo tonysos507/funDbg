@@ -2,3 +2,4 @@
 funDbg/x64/
 x64/
 funDbg/funDbg.vcxproj.user
+unitTest/unitTest.vcxproj.user
