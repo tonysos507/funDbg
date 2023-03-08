@@ -39,7 +39,7 @@ struct AdapterInfo
     EngineInfo   engineInfo[MAXNUM_ENGINES];
 };
 
-class C_lgParser
+class __declspec(dllexport) C_lgParser
 {
 public:
     C_lgParser();
