@@ -1,0 +1,27 @@
+EXPORTS
+
+;--------------------------------------------------------------------
+; These are the extensions exported by dll
+;--------------------------------------------------------------------
+	help
+	dumpstrings
+	dumpprocess
+	showtime
+	dumpregisters_v_script
+	gs
+	check_phydevobj
+	dump_psp
+	check_current_process_name
+	regfieldlook
+	dump_ib
+	mesh_shader_triage
+
+
+;--------------------------------------------------------------------
+;
+; these are the extension service functions provided for the debugger
+;
+;--------------------------------------------------------------------
+
+     DebugExtensionInitialize
+
