@@ -28,12 +28,12 @@ C_lgParser::~C_lgParser()
 bool C_lgParser::parser(const char* arg)
 {
     std::string file1 = arg;
-    std::ifstream if1(file1);
+    std::istringstream iss(file1);
 
     std::string line;
     
     size_t po = -1;
-    while (std::getline(if1, line))
+    while (std::getline(iss, line))
     {
         // check TDR level setting of the target
         if(  (po=line.find("TdrLevel : TdrLevelBugcheck (0n1)")) != -1  )
@@ -54,7 +54,7 @@ bool C_lgParser::parser(const char* arg)
 
 
     m_TempAdapterIndex = 0;
-    while (std::getline(if1, line))
+    while (std::getline(iss, line))
     {
         // find each adapter's fence Info
         // Adapter 0

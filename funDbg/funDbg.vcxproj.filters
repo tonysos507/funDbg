@@ -9,6 +9,7 @@
     <ClCompile Include="dbgext.cpp" />
     <ClCompile Include="out.cpp" />
     <ClCompile Include="lgparser.cpp" />
+    <ClCompile Include="mesh_shader_triage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="funDbg.def" />

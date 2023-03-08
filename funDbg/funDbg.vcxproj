@@ -103,6 +103,7 @@
   <ItemGroup>
     <ClCompile Include="dbgext.cpp" />
     <ClCompile Include="lgparser.cpp" />
+    <ClCompile Include="mesh_shader_triage.cpp" />
     <ClCompile Include="out.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
