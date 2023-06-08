@@ -4,6 +4,7 @@
 #include "out.h"
 #include <regex>
 #include "lgparser.h"
+#include "adapterParser.h"
 
 extern std::string executecommandout2buf(const char* cmd);
 
@@ -29,26 +30,42 @@ mesh_shader_triage(PDEBUG_CLIENT4 Client, PCSTR args)
 
     std::string cmds = ".chain";
     std::string result = executecommandout2buf(cmds.c_str());
-    bool found = (result.find("lext.dll") == -1) ? false : true;
+    bool found = (result.find("dxgkdx.dll") == -1) ? false : true;
     cmds = "lmmamdkmdag";
     result = executecommandout2buf(cmds.c_str());
-    bool found_private_symbol = (result.find("private pdb symbols") == -1) ? false : true;
-    if (found && found_private_symbol)
+    bool found_amdkmdag_private_symbol = (result.find("private pdb symbols") == -1) ? false : true;
+
+    cmds = "lmmdxgkrnl";
+    result = executecommandout2buf(cmds.c_str());
+    bool found_dxgkrnl_private_symbol = (result.find("private pdb symbols") == -1) ? false : true;
+
+    cmds = "lmmdxgmms2";
+    result = executecommandout2buf(cmds.c_str());
+    bool found_dxgmms2_private_symbol = (result.find("private pdb symbols") == -1) ? false : true;
+
+    if (found && found_amdkmdag_private_symbol && found_dxgkrnl_private_symbol && found_dxgmms2_private_symbol)
     {
-        cmds = "!lg";
+        cmds = "!adapters";
         result = executecommandout2buf(cmds.c_str());
-        C_lgParser lgObject;
+        C_adapterParser adapterObject;
 
 #ifdef DBG
         dprintf("%s\n", result.c_str());
 #endif
 
-        lgObject.parser(result.c_str());
+        adapterObject.parseAMDGpuInfo(result.c_str());
+        PAMDGPUINFO gpuInfo = adapterObject.getAMDGpuInfo();
+        if(gpuInfo)
+        {
+            cmds = "!schstatus ";
+            cmds += gpuInfo->m_Scheduler;
+            result = executecommandout2buf(cmds.c_str());
+        }
 
     }
     else
     {
-        dprintf("\r\n\r\n!!!!!!Please load lext.dll and KMD driver private symbol first!!!!!\r\n\r\n");
+        dprintf("\r\n\r\n!!!!!!Please load dxgkdx.dll and dxgkrnl.pdb/dxgmms2.pdb/amdkmdag.pdb private symbol first!!!!!\r\n\r\n");
     }
 
     return S_OK;

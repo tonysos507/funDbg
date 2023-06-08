@@ -10,6 +10,7 @@
     <ClCompile Include="out.cpp" />
     <ClCompile Include="lgparser.cpp" />
     <ClCompile Include="mesh_shader_triage.cpp" />
+    <ClCompile Include="adapterParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="funDbg.def" />

@@ -101,6 +101,7 @@
     <ClInclude Include="out.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="adapterParser.cpp" />
     <ClCompile Include="dbgext.cpp" />
     <ClCompile Include="lgparser.cpp" />
     <ClCompile Include="mesh_shader_triage.cpp" />

@@ -3,7 +3,6 @@
 #define MAXNUM_ADAPTERS 5
 #define MAXNUM_ENGINES 15
 #define MAXLEN_NAME 5
-#define MAXNUM_FENCETYPE 11
 
 enum TdrLevel
 {
@@ -25,13 +24,14 @@ enum FenceType
     subToDriverPremty,
     completebyGpuPremty,
     vidschCompletePremty,
+    maxFencType,
 };
 
 struct EngineInfo
 {
     unsigned int nodeOrdianl;
     char         name[MAXLEN_NAME];
-    unsigned int fenceInfo[MAXNUM_FENCETYPE];
+    unsigned int fenceInfo[maxFencType];
 };
 
 struct AdapterInfo
