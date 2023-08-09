@@ -101,10 +101,11 @@
     <ClInclude Include="out.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="adapterParser.cpp" />
+    <ClCompile Include="adapters\adapterParser.cpp" />
+    <ClCompile Include="commands\detectAsic.cpp" />
+    <ClCompile Include="commands\mesh_shader_triage.cpp" />
     <ClCompile Include="dbgext.cpp" />
     <ClCompile Include="lgparser.cpp" />
-    <ClCompile Include="mesh_shader_triage.cpp" />
     <ClCompile Include="out.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

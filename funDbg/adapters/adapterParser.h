@@ -13,6 +13,7 @@ public:
     virtual ~C_adapterParser();
     bool parseAMDGpuInfo(const char* arg);
     PAMDGPUINFO getAMDGpuInfo();
+    int getNumGpu();
 
 private:
 
@@ -22,4 +23,5 @@ private:
 
 private:
     PAMDGPUINFO m_AmdGpuInfo;
+    int         m_numGpu;
 };

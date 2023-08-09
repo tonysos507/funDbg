@@ -9,10 +9,25 @@
     <ClCompile Include="dbgext.cpp" />
     <ClCompile Include="out.cpp" />
     <ClCompile Include="lgparser.cpp" />
-    <ClCompile Include="mesh_shader_triage.cpp" />
-    <ClCompile Include="adapterParser.cpp" />
+    <ClCompile Include="commands\detectAsic.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="adapters\adapterParser.cpp">
+      <Filter>adapters</Filter>
+    </ClCompile>
+    <ClCompile Include="commands\mesh_shader_triage.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="funDbg.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="commands">
+      <UniqueIdentifier>{9092be5e-1c4b-400e-a63a-ebb09abdd24e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="adapters">
+      <UniqueIdentifier>{2b7c4fc1-d87b-4d67-ad35-ae3dca7486bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

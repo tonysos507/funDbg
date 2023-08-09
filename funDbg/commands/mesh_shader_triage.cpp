@@ -1,10 +1,10 @@
-#include "dbgext.h"
+#include "..\dbgext.h"
 #include <strsafe.h>
 #include <string>
-#include "out.h"
+#include "..\out.h"
 #include <regex>
-#include "lgparser.h"
-#include "adapterParser.h"
+#include "..\lgparser.h"
+#include "..\adapters\adapterParser.h"
 
 extern std::string executecommandout2buf(const char* cmd);
 
