@@ -4,6 +4,7 @@
     <ClInclude Include="dbgext.h" />
     <ClInclude Include="out.h" />
     <ClInclude Include="lgparser.h" />
+    <ClInclude Include="arkdbgxparser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dbgext.cpp" />
@@ -16,6 +17,10 @@
       <Filter>adapters</Filter>
     </ClCompile>
     <ClCompile Include="commands\mesh_shader_triage.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="arkdbgxparser.cpp" />
+    <ClCompile Include="commands\mes_triage.cpp">
       <Filter>commands</Filter>
     </ClCompile>
   </ItemGroup>

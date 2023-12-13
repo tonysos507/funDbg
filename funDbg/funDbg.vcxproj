@@ -14,14 +14,14 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{C6C12B93-CBB9-489F-9255-2CA8DB4D7558}</ProjectGuid>
     <RootNamespace>xjzext</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>funDbg</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>
     </CharacterSet>
@@ -30,7 +30,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet />
     <SpectreMitigation>false</SpectreMitigation>
@@ -96,14 +96,17 @@
     <None Include="funDbg.def" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="arkdbgxparser.h" />
     <ClInclude Include="dbgext.h" />
     <ClInclude Include="lgparser.h" />
     <ClInclude Include="out.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="adapters\adapterParser.cpp" />
+    <ClCompile Include="arkdbgxparser.cpp" />
     <ClCompile Include="commands\detectAsic.cpp" />
     <ClCompile Include="commands\mesh_shader_triage.cpp" />
+    <ClCompile Include="commands\mes_triage.cpp" />
     <ClCompile Include="dbgext.cpp" />
     <ClCompile Include="lgparser.cpp" />
     <ClCompile Include="out.cpp" />

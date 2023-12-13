@@ -15,6 +15,7 @@ EXPORTS
 	regfieldlook
 	dump_ib
 	mesh_shader_triage
+	mes_triage
 	detectAsic
 
 
