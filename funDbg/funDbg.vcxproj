@@ -104,6 +104,7 @@
   <ItemGroup>
     <ClCompile Include="adapters\adapterParser.cpp" />
     <ClCompile Include="arkdbgxparser.cpp" />
+    <ClCompile Include="basicFun\chkPrivateSymbol.cpp" />
     <ClCompile Include="commands\detectAsic.cpp" />
     <ClCompile Include="commands\mesh_shader_triage.cpp" />
     <ClCompile Include="commands\mes_triage.cpp" />

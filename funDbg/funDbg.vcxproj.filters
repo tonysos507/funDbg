@@ -23,6 +23,9 @@
     <ClCompile Include="commands\mes_triage.cpp">
       <Filter>commands</Filter>
     </ClCompile>
+    <ClCompile Include="basicFun\chkPrivateSymbol.cpp">
+      <Filter>basicFun</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="funDbg.def" />
@@ -33,6 +36,9 @@
     </Filter>
     <Filter Include="adapters">
       <UniqueIdentifier>{2b7c4fc1-d87b-4d67-ad35-ae3dca7486bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basicFun">
+      <UniqueIdentifier>{7476b129-818a-44ea-8227-20857c49adf9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

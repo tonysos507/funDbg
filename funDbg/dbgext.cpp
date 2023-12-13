@@ -3,7 +3,7 @@
 #include <string>
 #include "out.h"
 #include <regex>
-
+#include "basicFun/basicFun.h"
 
 WINDBG_EXTENSION_APIS   ExtensionApis;
 
@@ -59,6 +59,35 @@ help(PDEBUG_CLIENT4 Client, PCSTR args)
 	//	EXIT_API();
 
 	return S_OK;
+}
+
+extern "C" __declspec(dllexport) void CALLBACK DebugExtensionNotify(ULONG Notify, ULONG64 Argument)
+{
+	UNREFERENCED_PARAMETER(Argument);
+
+	switch (Notify)
+	{
+	case DEBUG_NOTIFY_SESSION_ACCESSIBLE:
+		break;
+	case DEBUG_NOTIFY_SESSION_ACTIVE:
+		if(!isPrivateSymbolLoad("amdkmdag"))
+		{
+			dprintf("missing KMD driver private symbol!\n");
+		}
+		if(!isPrivateSymbolLoad("dxgkrnl"))
+		{
+			dprintf("missing dxgkrnl driver private symbol!\n");
+		}
+		if(!isPrivateSymbolLoad("dxgmms2"))
+		{
+			dprintf("missing dxgmms2 driver private symbol!\n");
+		}
+		break;
+	case DEBUG_NOTIFY_SESSION_INACTIVE:
+		break;
+	case DEBUG_NOTIFY_SESSION_INACCESSIBLE:
+		break;
+	}
 }
 
 HRESULT CALLBACK
