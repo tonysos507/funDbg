@@ -63,3 +63,8 @@ bool WinExt::Initialize()
 
     return ret;
 }
+
+void WinExt::printRed(const char* buffer)
+{
+    m_pExtControl->ControlledOutput(DEBUG_OUTCTL_AMBIENT_DML, DEBUG_OUTPUT_NORMAL, "%s%s%s", "<col fg=\"changed\"><b>", buffer, "</b></col>");
+}

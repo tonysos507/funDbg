@@ -46,22 +46,28 @@ extern "C" __declspec(dllexport) void CALLBACK DebugExtensionNotify(ULONG Notify
 {
 	UNREFERENCED_PARAMETER(Argument);
 
+	WinExt* pWinExt = WinExt::GetWinExt();
+
 	switch (Notify)
 	{
 	case DEBUG_NOTIFY_SESSION_ACCESSIBLE:
 		break;
 	case DEBUG_NOTIFY_SESSION_ACTIVE:
-		if(!isPrivateSymbolLoad("amdkmdag"))
+		if (pWinExt != nullptr)
 		{
-			dprintf("missing KMD driver private symbol!\n");
-		}
-		if(!isPrivateSymbolLoad("dxgkrnl"))
-		{
-			dprintf("missing dxgkrnl driver private symbol!\n");
-		}
-		if(!isPrivateSymbolLoad("dxgmms2"))
-		{
-			dprintf("missing dxgmms2 driver private symbol!\n");
+			if (!isPrivateSymbolLoad("amdkmdag"))
+			{
+				//dprintf("missing KMD driver private symbol!\n");
+				pWinExt->printRed("missing KMD driver private symbol!\n");
+			}
+			if (!isPrivateSymbolLoad("dxgkrnl"))
+			{
+				pWinExt->printRed("missing dxgkrnl driver private symbol!\n");
+			}
+			if (!isPrivateSymbolLoad("dxgmms2"))
+			{
+				pWinExt->printRed("missing dxgmms2 driver private symbol!\n");
+			}
 		}
 		break;
 	case DEBUG_NOTIFY_SESSION_INACTIVE:

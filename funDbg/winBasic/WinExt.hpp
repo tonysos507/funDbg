@@ -12,7 +12,7 @@ public:
     virtual ~WinExt();
     virtual bool Initialize();
 
-
+    void printRed(const char* buffer);
 
     static WinExt* m_pSingletonWinExt;
 
