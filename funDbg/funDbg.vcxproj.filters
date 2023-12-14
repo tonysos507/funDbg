@@ -26,6 +26,9 @@
     <ClCompile Include="basicFun\chkPrivateSymbol.cpp">
       <Filter>basicFun</Filter>
     </ClCompile>
+    <ClCompile Include="winBasic\WinExt.cpp">
+      <Filter>winBasic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="funDbg.def" />
@@ -39,6 +42,9 @@
     </Filter>
     <Filter Include="basicFun">
       <UniqueIdentifier>{7476b129-818a-44ea-8227-20857c49adf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="winBasic">
+      <UniqueIdentifier>{42cd646d-7be0-496a-8b98-6c83fe713d3a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

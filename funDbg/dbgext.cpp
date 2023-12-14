@@ -4,6 +4,7 @@
 #include "out.h"
 #include <regex>
 #include "basicFun/basicFun.h"
+#include "winBasic/WinExt.hpp"
 
 WINDBG_EXTENSION_APIS   ExtensionApis;
 
@@ -12,34 +13,14 @@ HRESULT
 CALLBACK
 DebugExtensionInitialize(PULONG Version, PULONG Flags)
 {
-	IDebugClient *DebugClient;
-	PDEBUG_CONTROL DebugControl;
-	HRESULT Hr;
-
+	HRESULT Hr = S_FALSE;
 	*Version = DEBUG_EXTENSION_VERSION(1, 0);
 	*Flags = 0;
-	Hr = S_OK;
-
-	if ((Hr = DebugCreate(__uuidof(IDebugClient),
-		(void **)&DebugClient)) != S_OK)
+	WinExt* pWinExt = WinExt::GetWinExt();
+	if(pWinExt != nullptr)
 	{
-		return Hr;
+		Hr = S_OK;
 	}
-
-	if ((Hr = DebugClient->QueryInterface(__uuidof(IDebugControl),
-		(void **)&DebugControl)) == S_OK)
-	{
-
-		//
-		// Get the windbg-style extension APIS
-		//
-		ExtensionApis.nSize = sizeof(ExtensionApis);
-		Hr = DebugControl->GetWindbgExtensionApis64(&ExtensionApis);
-
-		DebugControl->Release();
-
-	}
-	DebugClient->Release();
 	return Hr;
 }
 
