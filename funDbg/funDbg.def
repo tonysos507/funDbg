@@ -16,6 +16,7 @@ EXPORTS
 	dump_ib
 	mesh_shader_triage
 	detectAsic
+    writeImg2Png
 
 
 ;--------------------------------------------------------------------

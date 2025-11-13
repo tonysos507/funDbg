@@ -80,7 +80,7 @@
       <SDLCheck>
       </SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(WindowsSdkDir)\Debuggers\inc;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(WindowsSdkDir)\Debuggers\inc;..\lib\zlib;..\lib\png;</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <PreprocessorDefinitions>DBG;_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -90,6 +90,8 @@
       <ModuleDefinitionFile>funDbg.def</ModuleDefinitionFile>
       <AdditionalDependencies>dbgeng.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -101,9 +103,39 @@
     <ClInclude Include="out.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\png\png.c" />
+    <ClCompile Include="..\lib\png\pngerror.c" />
+    <ClCompile Include="..\lib\png\pnggccrd.c" />
+    <ClCompile Include="..\lib\png\pngget.c" />
+    <ClCompile Include="..\lib\png\pngmem.c" />
+    <ClCompile Include="..\lib\png\pngpread.c" />
+    <ClCompile Include="..\lib\png\pngread.c" />
+    <ClCompile Include="..\lib\png\pngrio.c" />
+    <ClCompile Include="..\lib\png\pngrtran.c" />
+    <ClCompile Include="..\lib\png\pngrutil.c" />
+    <ClCompile Include="..\lib\png\pngset.c" />
+    <ClCompile Include="..\lib\png\pngtrans.c" />
+    <ClCompile Include="..\lib\png\pngvcrd.c" />
+    <ClCompile Include="..\lib\png\pngwio.c" />
+    <ClCompile Include="..\lib\png\pngwrite.c" />
+    <ClCompile Include="..\lib\png\pngwtran.c" />
+    <ClCompile Include="..\lib\png\pngwutil.c" />
+    <ClCompile Include="..\lib\zlib\adler32.c" />
+    <ClCompile Include="..\lib\zlib\compress.c" />
+    <ClCompile Include="..\lib\zlib\crc32.c" />
+    <ClCompile Include="..\lib\zlib\deflate.c" />
+    <ClCompile Include="..\lib\zlib\gzio.c" />
+    <ClCompile Include="..\lib\zlib\infback.c" />
+    <ClCompile Include="..\lib\zlib\inffast.c" />
+    <ClCompile Include="..\lib\zlib\inflate.c" />
+    <ClCompile Include="..\lib\zlib\inftrees.c" />
+    <ClCompile Include="..\lib\zlib\trees.c" />
+    <ClCompile Include="..\lib\zlib\uncompr.c" />
+    <ClCompile Include="..\lib\zlib\zutil.c" />
     <ClCompile Include="adapters\adapterParser.cpp" />
     <ClCompile Include="commands\detectAsic.cpp" />
     <ClCompile Include="commands\mesh_shader_triage.cpp" />
+    <ClCompile Include="commands\writeImg2Png.cpp" />
     <ClCompile Include="dbgext.cpp" />
     <ClCompile Include="lgparser.cpp" />
     <ClCompile Include="out.cpp" />
