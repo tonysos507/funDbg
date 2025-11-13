@@ -5,15 +5,17 @@
 #include <regex>
 #include "..\lgparser.h"
 #include "..\adapters\adapterParser.h"
+#include <Shlwapi.h>
 
 #include "..\..\lib\png\png.h"
 #include "..\..\lib\png\pngconf.h"
 
-#include "writeImg2Png.h"
-
 extern std::string executecommandout2buf(const char* cmd);
 
 #define BITDEPTH_16 16
+#define NUMBITSPERBYTE 8
+#define NUMBYTESINDWORD 4
+#define INTERNALDATAFILE "funDbgdata.bin"
 
 VOID user_flush_data(
     png_structp png_ptr)
@@ -62,10 +64,44 @@ writeImg2Png(PDEBUG_CLIENT4 Client, PCSTR args)
         UINT bpp = std::stoi(cmdLineArgs[5]) >> 3;  // bits per pixel divided by 8
         // demo hard code part end
 
+        PBYTE pInteralData = NULL;
+        {
+            std::string cmds = "!gwritedata /bin /x ";
+            cmds += cmdLineArgs[1];
+            cmds += " ";
+            cmds += cmdLineArgs[2];
+            cmds += " /L ";
+
+            UINT imageSizeInDword = (imageHeight * imageWidth * (std::stoi(cmdLineArgs[5]) / NUMBITSPERBYTE)) / NUMBYTESINDWORD;
+
+            cmds += std::to_string(imageSizeInDword);
+            cmds += " ";
+            
+            char modulePath[MAX_PATH] = {0};
+            GetModuleFileNameA(g_hInstance, modulePath, MAX_PATH);
+            PathRemoveFileSpecA(modulePath);
+            std::string sInteralDataFile = modulePath;
+            sInteralDataFile += "\\";
+            sInteralDataFile += INTERNALDATAFILE;
+
+            cmds += sInteralDataFile;
+            std::string result = executecommandout2buf(cmds.c_str());
+
+            FILE* pInteralDataFile = NULL;
+           fopen_s(&pInteralDataFile, sInteralDataFile.c_str(), "rb");
+           fseek(pInteralDataFile, 0, SEEK_END);
+           long uInteralDataFileSize = ftell(pInteralDataFile);
+           rewind(pInteralDataFile);
+           pInteralData = reinterpret_cast<PBYTE>(malloc(uInteralDataFileSize));
+           size_t readInteralDataSize = fread(pInteralData, 1, uInteralDataFileSize, pInteralDataFile);
+          
+           fclose(pInteralDataFile);
+        }
+
         BOOL        success = TRUE;
         png_structp png_ptr = NULL;
         png_infop   info_ptr = NULL;
-        PBYTE       pImage = reinterpret_cast<PBYTE>(data);
+        PBYTE       pImage = reinterpret_cast<PBYTE>(pInteralData);
 
         if(bpp == 8)
         {
@@ -106,6 +142,10 @@ writeImg2Png(PDEBUG_CLIENT4 Client, PCSTR args)
 
         png_destroy_write_struct(&png_ptr, png_infopp_NULL);
 
+        if(pInteralData)
+        {
+            free(pInteralData);
+        }
         fclose(fp);
     }
 

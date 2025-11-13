@@ -19,3 +19,5 @@
 
 
 #define INTERNALLOG "d:\\xjzext.log"
+
+extern HINSTANCE g_hInstance;

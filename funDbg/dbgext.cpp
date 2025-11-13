@@ -8,6 +8,8 @@
 
 WINDBG_EXTENSION_APIS   ExtensionApis;
 
+HINSTANCE g_hInstance = NULL;
+
 extern "C"
 HRESULT
 CALLBACK
@@ -40,6 +42,22 @@ help(PDEBUG_CLIENT4 Client, PCSTR args)
 	//	EXIT_API();
 
 	return S_OK;
+}
+
+BOOL APIENTRY DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
+{
+    switch(dwReason)
+    {
+    case DLL_PROCESS_ATTACH:
+        g_hInstance = hInstance;
+        break;
+    case DLL_PROCESS_DETACH:
+        g_hInstance = NULL;
+        break;
+    default:
+        break;
+    }
+    return TRUE;
 }
 
 extern "C" __declspec(dllexport) void CALLBACK DebugExtensionNotify(ULONG Notify, ULONG64 Argument)
