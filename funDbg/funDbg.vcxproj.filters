@@ -29,6 +29,96 @@
     <ClCompile Include="winBasic\WinExt.cpp">
       <Filter>winBasic</Filter>
     </ClCompile>
+    <ClCompile Include="commands\writeImg2Png.cpp">
+      <Filter>commands</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\png.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngerror.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pnggccrd.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngget.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngmem.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngpread.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngread.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngrio.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngrtran.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngrutil.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngset.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngtrans.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngvcrd.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngwio.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngwrite.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngwtran.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\png\pngwutil.c">
+      <Filter>lib\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\adler32.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\compress.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\crc32.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\deflate.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\gzio.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\infback.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\inffast.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\inflate.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\inftrees.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\trees.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\uncompr.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\zlib\zutil.c">
+      <Filter>lib\zlib</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="funDbg.def" />
@@ -45,6 +135,15 @@
     </Filter>
     <Filter Include="winBasic">
       <UniqueIdentifier>{42cd646d-7be0-496a-8b98-6c83fe713d3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{28d6ddeb-3aa9-47c8-aaeb-0e9511d9fac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\png">
+      <UniqueIdentifier>{ecfce27f-663c-4464-84f5-a8913ee4769f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\zlib">
+      <UniqueIdentifier>{f407d133-bfe2-454d-a37e-38663e855166}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

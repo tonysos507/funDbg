@@ -17,7 +17,7 @@ EXPORTS
 	mesh_shader_triage
 	mes_triage
 	detectAsic
-
+    writeImg2Png
 
 ;--------------------------------------------------------------------
 ;
